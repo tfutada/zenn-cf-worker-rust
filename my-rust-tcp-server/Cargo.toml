@@ -1,0 +1,43 @@
+[package]
+name = "worker-rust"
+version = "0.1.0"
+edition = "2021"
+
+#[[bin]]
+#name = "socket_server"
+#path = "src/socket_server.rs"
+#
+#[[bin]]
+#name = "socket_client"
+#path = "src/socket_client.rs"
+
+[[bin]]
+name = "tokio_server"
+path = "src/tokio_server.rs"
+
+[[bin]]
+name = "tokio_server_split"
+path = "src/tokio_server_split.rs"
+
+[[bin]]
+name = "tokio_client"
+path = "src/tokio_client.rs"
+
+[[bin]]
+name = "tutorial"
+path = "tokio_io/io_copy.rs"
+
+
+[dependencies]
+serde = { version = "1.0.188", features = ["derive"] }
+reqwest = "0.11.22"
+serde_json = "1.0.107"
+futures-util = "0.3.28"
+hyper = { version = "0.14", default-features = false, features = ['http1', 'client'] }
+tokio = { version = "1.0", features = ["full", "tracing"] }
+
+
+[profile.release]
+lto = true
+strip = true
+codegen-units = 1
