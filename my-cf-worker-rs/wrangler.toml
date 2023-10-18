@@ -1,0 +1,16 @@
+name = "worker-rust"
+main = "build/worker/shim.mjs"
+compatibility_date = "2023-03-22"
+
+[build]
+command = "cargo install -q worker-build && worker-build --release"
+
+[[kv_namespaces]]
+binding = "myrustkv"
+id = "e7b97c05be5440f2b0e4efff640c14c5"
+preview_id = "b06bc387f865433291255ea31c2c51c6"
+
+[[d1_databases]]
+binding = "customer-db" # i.e. available in your Worker on env.DB
+database_name = "d1-example"
+database_id = "9aa38d15-8716-43f9-8cb1-31f633c7638b"

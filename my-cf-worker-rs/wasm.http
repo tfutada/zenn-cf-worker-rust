@@ -1,0 +1,21 @@
+POST http://localhost:8787/echo-bytes
+Content-Type: application/x-www-form-urlencoded
+
+id = 99 &
+content = new-elementaakdksfjskdfsafjaskfjkasjfdaksjfdkajfka
+###
+POST http://localhost:8787/upload
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="caption"
+
+abc
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="file.txt"
+
+< ./README.md
+--WebAppBoundary--
+
+###
+
